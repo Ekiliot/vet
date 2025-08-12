@@ -13,11 +13,11 @@
     },
     {
       "src": "/admin",
-      "dest": "/public/admin.html"
+      "dest": "/server.js"
     },
     {
       "src": "/login",
-      "dest": "/public/login.html"
+      "dest": "/server.js"
     },
     {
       "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
@@ -25,7 +25,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/public/index.html"
+      "dest": "/server.js"
     }
   ]
 } 

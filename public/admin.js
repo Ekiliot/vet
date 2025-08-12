@@ -127,33 +127,22 @@ function showLoginForm() {
 // Load dashboard data
 async function loadDashboardData() {
     try {
-        // Временно используем localStorage для демонстрации
-        // В реальном проекте здесь будет API вызов
-        const clients = JSON.parse(localStorage.getItem('clients') || '[]');
+        // Load statistics
+        const statsResponse = await fetch('/api/admin/stats');
         
-        // Создаем демо статистику
-        const stats = {
-            totalClients: clients.length,
-            petTypeStats: getPetTypeStats(clients)
-        };
+        if (statsResponse.ok) {
+            const stats = await statsResponse.json();
+            updateStatistics(stats);
+        }
         
-        updateStatistics(stats);
-        updateClientsTable(clients);
-        updateCharts(clients);
+        // Load clients
+        const clientsResponse = await fetch('/api/admin/clients');
         
-        // В реальном проекте здесь будет:
-        // const statsResponse = await fetch('https://your-api.vercel.app/api/admin/stats');
-        // if (statsResponse.ok) {
-        //     const stats = await statsResponse.json();
-        //     updateStatistics(stats);
-        // }
-        // 
-        // const clientsResponse = await fetch('https://your-api.vercel.app/api/admin/clients');
-        // if (clientsResponse.ok) {
-        //     const clients = await clientsResponse.json();
-        //     updateClientsTable(clients);
-        //     updateCharts(clients);
-        // }
+        if (clientsResponse.ok) {
+            const clients = await clientsResponse.json();
+            updateClientsTable(clients);
+            updateCharts(clients);
+        }
         
     } catch (error) {
         showMessage('Ошибка загрузки данных', 'error');
@@ -193,12 +182,12 @@ function updateClientsTable(clients) {
     tbody.innerHTML = clients.map(client => `
         <tr>
             <td>${client.id}</td>
-            <td>${client.firstName || client.first_name || '-'}</td>
-            <td>${client.lastName || client.last_name || '-'}</td>
+            <td>${client.first_name}</td>
+            <td>${client.last_name}</td>
             <td>${client.phone || '-'}</td>
             <td>${client.email || '-'}</td>
-            <td>${client.petName || client.pet_name || '-'}</td>
-            <td>${client.petType || client.pet_type || '-'}</td>
+            <td>${client.pet_name || '-'}</td>
+            <td>${client.pet_type || '-'}</td>
             <td>${new Date(client.created_at).toLocaleDateString('ru-RU')}</td>
         </tr>
     `).join('');
@@ -294,9 +283,8 @@ function processPetTypeData(clients) {
     const petTypes = {};
     
     clients.forEach(client => {
-        const petType = client.petType || client.pet_type;
-        if (petType) {
-            petTypes[petType] = (petTypes[petType] || 0) + 1;
+        if (client.pet_type) {
+            petTypes[client.pet_type] = (petTypes[client.pet_type] || 0) + 1;
         }
     });
     
@@ -325,7 +313,7 @@ function processActivityData(clients) {
     });
     
     clients.forEach(client => {
-        const clientDate = new Date(client.created_at || client.createdAt).toLocaleDateString('ru-RU', { month: 'short', day: 'numeric' });
+        const clientDate = new Date(client.created_at).toLocaleDateString('ru-RU', { month: 'short', day: 'numeric' });
         if (activityData.hasOwnProperty(clientDate)) {
             activityData[clientDate]++;
         }
@@ -367,13 +355,4 @@ setInterval(() => {
     }
 }, 5 * 60 * 1000);
 
-// Helper function to get pet type statistics
-function getPetTypeStats(clients) {
-    const stats = {};
-    clients.forEach(client => {
-        if (client.petType) {
-            stats[client.petType] = (stats[client.petType] || 0) + 1;
-        }
-    });
-    return stats;
-} 
+ 

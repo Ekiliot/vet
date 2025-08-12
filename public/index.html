@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ветеринарная клиника Федорова - Тирасполь, ПМР</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>ВетКлиника Федорова</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#instagram">Instagram</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                    <li><a href="/login" class="admin-link-nav">Вход</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Заботливый уход за вашими питомцами
+                </h1>
+                <p class="hero-subtitle">
+                    Профессиональная ветеринарная помощь в Тирасполе
+                </p>
+                <button class="cta-button" data-action="scroll-to-contact">
+                    Записаться на прием
+                </button>
+            </div>
+            <div class="hero-image">
+                <div class="animals-carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-slide active">
+                            <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&h=400&fit=crop&crop=face" alt="Счастливая собака" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=400&fit=crop&crop=face" alt="Любопытная кошка" loading="lazy">
+                        </div>
+
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400&h=400&fit=crop&crop=face" alt="Дружелюбная кошка" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&h=400&fit=crop&crop=face" alt="Игривый котенок" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&h=400&fit=crop&crop=face" alt="Веселый попугай" loading="lazy">
+                        </div>
+
+                    </div>
+                    <div class="carousel-progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                        <span class="dot" data-slide="3"></span>
+                        <span class="dot" data-slide="4"></span>
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn prev-btn" data-action="previous-slide">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn next-btn" data-action="next-slide">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg-animation"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Диагностика</h3>
+                    <p>Современное оборудование для точной диагностики заболеваний</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <h3>Вакцинация</h3>
+                    <p>Профилактические прививки для защиты здоровья питомцев</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Хирургия</h3>
+                    <p>Квалифицированные хирургические вмешательства</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3>Терапия</h3>
+                    <p>Лечение различных заболеваний у животных</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>О ветеринарной клинике Федорова</h2>
+                    <p>Мы предоставляем профессиональные ветеринарные услуги в Тирасполе уже много лет. Наша команда опытных специалистов заботится о здоровье ваших питомцев с любовью и профессионализмом.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Работаем без выходных</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-user-md"></i>
+                            <span>Опытные специалисты</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-home"></i>
+                            <span>Удобное расположение</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-clinic-medical"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section id="instagram" class="instagram">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fab fa-instagram"></i>
+                Следите за нами в Instagram
+            </h2>
+            <div class="instagram-widget">
+                <iframe 
+                    src="https://www.instagram.com/vet_pomosh.pmr/embed" 
+                    width="100%" 
+                    height="600" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    allowtransparency="true"
+                    title="Instagram Feed - Ветеринарная клиника Федорова">
+                </iframe>
+                <div class="instagram-fallback">
+                    <p>Если виджет Instagram не загрузился, следите за нами:</p>
+                    <a href="https://instagram.com/vet_pomosh.pmr" target="_blank" class="instagram-link">
+                        <i class="fab fa-instagram"></i>
+                        @vet_pomosh.pmr
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Записаться на прием</h2>
+            <div class="contact-content">
+
+                <div class="contact-form">
+                    <h3>Записаться на прием</h3>
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <input type="text" id="firstName" name="firstName" placeholder="Ваше имя *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="lastName" name="lastName" placeholder="Ваша фамилия *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Телефон">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="petName" name="petName" placeholder="Имя питомца">
+                        </div>
+                        <div class="form-group">
+                            <select id="petType" name="petType">
+                                <option value="">Выберите тип питомца</option>
+                                <option value="собака">Собака</option>
+                                <option value="кошка">Кошка</option>
+                                <option value="птица">Птица</option>
+                                <option value="грызун">Грызун</option>
+                                <option value="другое">Другое</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Сообщение (опционально)"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Отправить заявку
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Ветеринарная клиника Федорова</h4>
+                    <p>Профессиональная забота о здоровье ваших питомцев</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Социальные сети</h4>
+                    <div class="social-links">
+                        <a href="https://instagram.com/vet_pomosh.pmr" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ветеринарная клиника Федорова. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Panel Link (hidden for regular users) -->
+    <div class="admin-link" style="display: none;">
+        <a href="/admin" target="_blank">Админ панель</a>
+    </div>
+
+    <!-- Модальное окно записи на прием -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Записаться на прием</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="appointmentModalForm">
+                    <div class="form-group">
+                        <input type="text" id="modalFirstName" name="firstName" placeholder="Ваше имя *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="modalLastName" name="lastName" placeholder="Ваша фамилия *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="modalPhone" name="phone" placeholder="Телефон">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="modalEmail" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="modalPetName" name="petName" placeholder="Имя питомца">
+                    </div>
+                    <div class="form-group">
+                        <select id="modalPetType" name="petType">
+                            <option value="">Выберите тип питомца</option>
+                            <option value="собака">Собака</option>
+                            <option value="кошка">Кошка</option>
+                            <option value="птица">Птица</option>
+                            <option value="грызун">Грызун</option>
+                            <option value="другое">Другое</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="modalMessage" name="message" placeholder="Сообщение (опционально)"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Отправить заявку
+                    </button>
+                </form>
+                
+                <!-- Блок с номером телефона (скрыт по умолчанию) -->
+                <div id="phoneDisplay" class="phone-display" style="display: none;">
+                    <div class="phone-info">
+                        <h4>Спасибо за заявку!</h4>
+                        <p>Мы свяжемся с вами в ближайшее время</p>
+                        <div class="phone-number">
+                            <span class="phone-text">373 775 02222</span>
+                            <a href="tel:37377502222" class="call-btn">
+                                <i class="fas fa-phone"></i>
+                                Позвонить
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -397,34 +397,40 @@ function initAppointmentModal() {
             };
             
             try {
-                const response = await fetch('/api/clients', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
+                // Временно сохраняем данные в localStorage для демонстрации
+                // В реальном проекте здесь будет API вызов
+                const clients = JSON.parse(localStorage.getItem('clients') || '[]');
+                const newClient = {
+                    id: Date.now(),
+                    ...data,
+                    created_at: new Date().toISOString()
+                };
+                clients.push(newClient);
+                localStorage.setItem('clients', JSON.stringify(clients));
                 
-                if (response.ok) {
-                    // Скрываем форму и показываем номер телефона
-                    form.style.display = 'none';
-                    phoneDisplay.style.display = 'block';
-                    
-                    // Автоматически закрываем модальное окно через 5 секунд
-                    setTimeout(() => {
-                        modal.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                        form.reset();
-                        phoneDisplay.style.display = 'none';
-                        form.style.display = 'block';
-                    }, 5000);
-                } else {
-                    const errorData = await response.json();
-                    showMessage(errorData.error || 'Ошибка при отправке заявки', 'error');
-                }
+                // Показываем успешное сообщение
+                form.style.display = 'none';
+                phoneDisplay.style.display = 'block';
+                
+                // Автоматически закрываем модальное окно через 5 секунд
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    form.reset();
+                    phoneDisplay.style.display = 'none';
+                    form.style.display = 'block';
+                }, 5000);
+                
+                // В реальном проекте здесь будет:
+                // const response = await fetch('https://your-api.vercel.app/api/clients', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify(data)
+                // });
+                
             } catch (error) {
                 console.error('Ошибка:', error);
-                showMessage('Ошибка соединения с сервером', 'error');
+                showMessage('Ошибка при сохранении заявки', 'error');
             }
         });
     }
